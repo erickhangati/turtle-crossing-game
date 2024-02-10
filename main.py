@@ -1,5 +1,6 @@
 from turtle import Screen
 from crossing_turtle import CrossingTurtle
+from car import Car
 from time import sleep
 
 # Screen setup
@@ -13,6 +14,9 @@ crossing_turtle = CrossingTurtle()
 # Listen for movement key
 screen.listen()
 screen.onkey(key="Up", fun=crossing_turtle.move)
+
+# Car instance
+car = Car()
 
 game_on = True
 

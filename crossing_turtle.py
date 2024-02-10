@@ -16,4 +16,3 @@ class CrossingTurtle(Turtle):
         :return: None
         """
         self.forward(10)
-
