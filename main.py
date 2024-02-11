@@ -9,6 +9,7 @@ from random import randint
 screen = Screen()
 screen.setup(600, 600)
 screen.tracer(0)
+screen.title("Turtle Crossing Game")
 
 # Crossing turtle instance
 crossing_turtle = CrossingTurtle()
