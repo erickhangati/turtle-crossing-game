@@ -24,5 +24,13 @@ while game_on:
     screen.update()
     sleep(0.2)
 
+    # Move car
+    car.move()
+
+    # Detect collision
+    if crossing_turtle.distance(car) < 15:
+        print("Collided")
+        break
+
 # Keep screen on
 screen.exitonclick()
