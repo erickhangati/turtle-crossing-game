@@ -14,7 +14,9 @@ screen.title("Turtle Crossing Game")
 # Crossing turtle instance
 crossing_turtle = CrossingTurtle()
 
-scoreboard = Scoreboard()
+# Scores
+scoreboard = Scoreboard("scores")
+level_board = Scoreboard("level")
 
 # Listen for movement key
 screen.listen()
@@ -36,11 +38,14 @@ def create_car():
         screen.ontimer(create_car, interval)
 
 
+# Create cars
 create_car()
+
+car_speed = 0.2
 
 while game_on:
     screen.update()
-    sleep(0.2)
+    sleep(car_speed)
 
     for vehicle in cars:
 
@@ -54,9 +59,16 @@ while game_on:
             break
 
         # Update scores
-        if vehicle.xcor() < -20 and not vehicle.counted:
+        if vehicle.xcor() == -20 and not vehicle.counted and crossing_turtle.ycor() >= -260:
             scoreboard.update_scores()
             vehicle.counted = True
+
+        # Update level
+        if crossing_turtle.ycor() > 280:
+            crossing_turtle.reset_turtle()
+            level_board.level += 1
+            level_board.update_scores()
+            car_speed *= 0.9
 
 # Keep screen on
 screen.exitonclick()

@@ -8,7 +8,7 @@ class CrossingTurtle(Turtle):
         self.setheading(90)
         self.color("brown")
         self.penup()
-        self.goto(0, -280)
+        self.reset_turtle()
 
     def move(self):
         """
@@ -16,3 +16,6 @@ class CrossingTurtle(Turtle):
         :return: None
         """
         self.forward(10)
+
+    def reset_turtle(self):
+        self.goto(0, -280)
