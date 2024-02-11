@@ -18,4 +18,8 @@ class CrossingTurtle(Turtle):
         self.forward(10)
 
     def reset_turtle(self):
+        """
+        Set turtle beginning position
+        :return: None
+        """
         self.goto(0, -280)

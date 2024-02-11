@@ -15,6 +15,10 @@ class Scoreboard(Turtle):
         self.display_score()
 
     def score_position(self):
+        """
+        Set scores position on screen.
+        :return: None
+        """
         if self.score_type == "scores":
             self.goto(120, 280)
         else:

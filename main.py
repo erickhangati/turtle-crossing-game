@@ -32,7 +32,7 @@ game_on = True
 def create_car():
     car = Car()
     cars.append(car)
-    interval = randint(1000, 2000)  # Random interval between 1 and 3 seconds
+    interval = randint(1000, 2000)  # Random interval between 1 and 2 seconds
 
     if game_on:
         screen.ontimer(create_car, interval)
