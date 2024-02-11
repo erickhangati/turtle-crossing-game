@@ -1,6 +1,6 @@
 # Turtle Crossing Game
 
-This is a simple Python game where a turtle tries to cross a road filled with moving cars. The player controls the turtle using the 'Up' arrow key to move it upwards. The objective is to cross the road without getting hit by any cars. The game ends when the turtle collides with a car.
+Guide a turtle across a busy road, dodging cars to reach safety. Score points for each successful crossing. Python-based, fun for all ages!
 
 ## How to Play
 
@@ -8,13 +8,14 @@ This is a simple Python game where a turtle tries to cross a road filled with mo
 2. Use the 'Up' arrow key to move the turtle upwards.
 3. Dodge the moving cars.
 4. The game ends when the turtle collides with a car.
-5. The score increases each time the car crosses without hitting the turtle.
+5. The score increases each time a car passes without hitting the turtle.
+6. The level increases when the turtle successfully crosses to the other side of the road. Resetting back to the starting point on a new level and the speed of cars increases.
 
 ## Files
 
 ### `crossing_turtle.py`
 
-Contains the class `CrossingTurtle`, which represents the turtle that the player controls. This turtle is responsible for crossing the road.
+Contains the class `CrossingTurtle`, which represents the turtle that the player controls. This turtle is responsible for crossing the road. Now includes a `reset_turtle` method to set the turtle's position.
 
 ### `car.py`
 
@@ -22,11 +23,11 @@ Contains the class `Car`, representing the cars that move horizontally across th
 
 ### `scoreboard.py`
 
-Contains the class `Scoreboard`, which manages and displays the player's score during the game. The score increases each time the turtle successfully crosses the road without getting hit by a car.
+Contains the class `Scoreboard`, which manages and displays the player's score and level during the game. Now includes a `level` attribute and methods to display and update the level.
 
 ### `main.py`
 
-This is the main file that orchestrates the game. It sets up the game environment, creates instances of the turtle, cars, and scoreboard, and handles game logic such as movement, collision detection, and score updating.
+This is the main file that orchestrates the game. It sets up the game environment, creates instances of the turtle, cars, and scoreboard, and handles game logic such as movement, collision detection, score updating, and level progression.
 
 ## Dependencies
 
