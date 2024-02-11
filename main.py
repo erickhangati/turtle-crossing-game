@@ -3,6 +3,7 @@ from crossing_turtle import CrossingTurtle
 from car import Car
 from scoreboard import Scoreboard
 from time import sleep
+from random import randint
 
 # Screen setup
 screen = Screen()
@@ -19,25 +20,42 @@ screen.listen()
 screen.onkey(key="Up", fun=crossing_turtle.move)
 
 # Car instance
-car = Car()
+cars = []
 
 game_on = True
+
+
+# Function to create a car at a random interval
+def create_car():
+    car = Car()
+    cars.append(car)
+    interval = randint(1000, 2000)  # Random interval between 1 and 3 seconds
+
+    if game_on:
+        screen.ontimer(create_car, interval)
+
+
+create_car()
 
 while game_on:
     screen.update()
     sleep(0.2)
 
-    # Move car
-    car.move()
+    for vehicle in cars:
 
-    # Detect collision
-    if crossing_turtle.distance(car) < 15:
-        scoreboard.game_over()
-        break
+        # Move car
+        vehicle.move()
 
-    # Update scores
-    if car.xcor() < -20 and scoreboard.scores == 0:
-        scoreboard.update_scores()
+        # Detect collision
+        if crossing_turtle.distance(vehicle) < 15:
+            scoreboard.game_over()
+            game_on = False
+            break
+
+        # Update scores
+        if vehicle.xcor() < -20 and not vehicle.counted:
+            scoreboard.update_scores()
+            vehicle.counted = True
 
 # Keep screen on
 screen.exitonclick()
