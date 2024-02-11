@@ -1,6 +1,7 @@
 from turtle import Screen
 from crossing_turtle import CrossingTurtle
 from car import Car
+from scoreboard import Scoreboard
 from time import sleep
 
 # Screen setup
@@ -10,6 +11,8 @@ screen.tracer(0)
 
 # Crossing turtle instance
 crossing_turtle = CrossingTurtle()
+
+scoreboard = Scoreboard()
 
 # Listen for movement key
 screen.listen()
@@ -29,8 +32,12 @@ while game_on:
 
     # Detect collision
     if crossing_turtle.distance(car) < 15:
-        print("Collided")
+        scoreboard.game_over()
         break
+
+    # Update scores
+    if car.xcor() < -20 and scoreboard.scores == 0:
+        scoreboard.update_scores()
 
 # Keep screen on
 screen.exitonclick()
