@@ -27,12 +27,13 @@ cars = []
 
 game_on = True
 
+interval = 2000
+
 
 # Function to create a car at a random interval
 def create_car():
     car = Car()
     cars.append(car)
-    interval = randint(1000, 2000)  # Random interval between 1 and 2 seconds
 
     if game_on:
         screen.ontimer(create_car, interval)
@@ -69,6 +70,7 @@ while game_on:
             level_board.level += 1
             level_board.update_scores()
             car_speed *= 0.9
+            interval -= 100
 
 # Keep screen on
 screen.exitonclick()
